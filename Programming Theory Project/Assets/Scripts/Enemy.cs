@@ -4,7 +4,25 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 3.0f;
+    private float normalSpeed = 3.0f;
+    public Vector3 lookDirection;
+
+    // set Enemy speed >= 3.0f
+    public float speed  // ENCAPSULATION
+    {
+        get { return normalSpeed; }
+        set
+        {
+            if(value < 3.0f)
+            {
+                normalSpeed = 3.0f;
+            }
+            else
+            {
+                normalSpeed = value;
+            }
+        }
+    }
     private Rigidbody enemyRb;
     private GameObject player;
 
@@ -13,16 +31,27 @@ public class Enemy : MonoBehaviour
     {
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
+        SetWarrior();
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
-        Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+        MoveEnemy();    // ABSTRACTION
+    }
+
+    public void MoveEnemy() // ABSTRACTION
+    {
+        lookDirection = (player.transform.position - transform.position).normalized;
         enemyRb.AddForce(lookDirection * speed);
-        if(transform.position.y < -10)
+        if (transform.position.y < -10)
         {
             Destroy(gameObject);
         }
+    }
+
+    public virtual void SetWarrior()    // POLYMORPHISM
+    {
+        enemyRb.mass = 0.9f;
     }
 }
