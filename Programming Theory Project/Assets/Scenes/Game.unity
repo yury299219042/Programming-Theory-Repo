@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCount: 0
   enemyPrefab: {fileID: 8639011684191164275, guid: 67c56d81c8a31d347ae0fdbfa8b8a958, type: 3}
+  chiefPrefab: {fileID: 8639011684191164275, guid: 6a360c5643646c842ae76edfa8f15ef7, type: 3}
   powerupPrefab: {fileID: 982815542830151116, guid: c46ee05a89dd788428430d78d8903b7c, type: 3}
 --- !u!1001 &245963551
 PrefabInstance:
@@ -737,7 +738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1fccc390ff9f045a6b34b362a615e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 50
 --- !u!4 &1631483429
 Transform:
   m_ObjectHideFlags: 0
